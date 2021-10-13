@@ -19,4 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('playback', PlaybackController::class);
+Route::middleware('api_token')->group(function () {
+    Route::apiResource('playbacks', PlaybackController::class);
+});
+
+// Route::apiResource('playbacks', PlaybackController::class);
