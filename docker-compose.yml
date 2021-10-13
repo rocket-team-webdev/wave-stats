@@ -53,7 +53,7 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD:
+      PMA_USER: waveAdmin
+      PMA_PASSWORD: 123456
     networks:
       - app-network
