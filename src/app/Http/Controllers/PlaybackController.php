@@ -15,7 +15,12 @@ class PlaybackController extends Controller
      */
     public function index()
     {
-        //
+        $response = [
+            'success' => true,
+            'data' => "mock",
+        ];
+
+        return response()->json($response, 200);
     }
 
     /**
@@ -25,7 +30,6 @@ class PlaybackController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -38,23 +42,12 @@ class PlaybackController extends Controller
     {
         $input = $request->all();
         $playback = Playback::create($input);
+
         return response()->json([
             "success" => true,
             "message" => "Playback stored successfully.",
             "data" => $playback
         ]);
-        //         $validator = Validator::make($input, [
-        //             'name' => 'required',
-        //             'detail' => 'required'
-        //         ]);
-        //         if ($validator->fails()) {
-        //             return
-        //                 $this->sendError(
-        //                     'Validation
-        // Error.',
-        //                     $validator->errors()
-        //                 );
-        //         }
     }
 
     /**

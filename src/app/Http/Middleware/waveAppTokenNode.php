@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class waveAppToken
+class waveAppTokenNode
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class waveAppToken
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->headers->get('x-api-token') != env('API_KEY_REACT')) {
+        if ($request->headers->get('x-api-token') != env('API_KEY_NODE')) {
             return response()->json('Unauthorized', 401);
         }
 

@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'api_token' => \App\Http\Middleware\waveAppToken::class,
+        'api_token_post' => \App\Http\Middleware\waveAppToken::class,
+        'api_token_node' => \App\Http\Middleware\waveAppTokenNode::class,
     ];
 }
