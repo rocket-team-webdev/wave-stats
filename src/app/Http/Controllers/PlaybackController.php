@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Playback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 // use Validator;
 
 class PlaybackController extends Controller
@@ -15,9 +16,13 @@ class PlaybackController extends Controller
      */
     public function index()
     {
+        $result = DB::table("playbacks")
+            ->select('trackId', DB::raw('count(*) as total'))
+            ->groupBy("trackId")
+            ->get();
         $response = [
             'success' => true,
-            'data' => "mock",
+            'data' => $result,
         ];
 
         return response()->json($response, 200);
